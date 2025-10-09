@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Victorien Bouvet — e-Portfolio (ENSEEIHT 3EA)</title>
+  <meta name="description" content="e-Portfolio conforme N7 : 6 onglets, projets détaillés, CV FR/EN, mobilité, engagement, sports et carrière." />
+  <meta name="author" content="Victorien Bouvet" />
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7cc3ff"/><stop offset="100%" stop-color="#2997ff"/></linearGradient></defs><circle cx="32" cy="32" r="28" fill="url(%23g)"/><circle cx="22" cy="20" r="10" fill="white" opacity="0.14"/></svg>' />
+  <style>
+    :root{
+      --bg:#0b0c0e; --surface:#121419; --elev:#171a20; --text:#f5f7fb; --muted:#b3b8c2;
+      --link:#2997ff; --maxw:1120px; --radius:22px; --shadow:0 24px 60px rgba(0,0,0,.35);
+      --card-border: rgba(255,255,255,.10);
+      --h1:clamp(32px,5vw,56px); --h2:clamp(22px,3.2vw,30px); --lead:clamp(16px,2.2vw,19px)
+    }
+    [data-theme="light"]{
+      --bg:#fbfbfd; --surface:#ffffff; --elev:#ffffff; --text:#1d1d1f; --muted:#6e6e73;
+      --shadow:0 24px 60px rgba(0,0,0,.08); --card-border: rgba(0,0,0,.12)
+    }
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding:20px}
+    header.nav{position:sticky;top:0;z-index:60;backdrop-filter:saturate(180%) blur(14px);
+      background:linear-gradient(180deg, rgba(15,17,22,.85), rgba(15,17,22,.72)); border-bottom:1px solid var(--card-border)}
+    [data-theme="light"] header.nav{background:linear-gradient(180deg, rgba(251,251,253,.85), rgba(251,251,253,.72))}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:auto;padding:10px 16px}
+    nav ul{display:flex;gap:14px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+    nav a{color:var(--text);opacity:.92} nav a:hover{opacity:1}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(145deg,#7c5cff,#22d3ee);box-shadow:0 0 0 6px #7c5cff22}
+    .ctrls{display:flex;gap:8px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 14px;border:1px solid var(--card-border);background:var(--elev);color:var(--text)}
+    .btn.primary{background:var(--text);color:var(--bg)}
+    .ghost, select{background:transparent;color:var(--text);border:1px solid var(--card-border);padding:8px 12px;border-radius:999px}
+    .ghost{cursor:pointer}
+    .card{background:var(--surface);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .chip{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--card-border);border-radius:999px;padding:6px 12px;color:var(--muted)}
+    h1{font-size:var(--h1);line-height:1.06;margin:10px 0 8px}
+    .h2{font-size:var(--h2);margin:0 0 10px}
+    .lead{font-size:var(--lead);color:var(--muted)}
+    .grid{display:grid;gap:18px}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:960px){ .cols-3,.cols-2{grid-template-columns:1fr} .nav-inner{flex-wrap:wrap} }
+    .section{padding:22px 0}
+    .tag{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid var(--card-border);font-size:12px}
+    .project{transition:transform .35s ease, box-shadow .35s ease}
+    .project:hover{transform:translateY(-4px);box-shadow:0 40px 80px rgba(0,0,0,.35)}
+    .pbg{position:fixed;inset:-10% -5% auto -5%;height:60vh;z-index:-1;
+      background:radial-gradient(1200px 400px at 50% -10%, #2997ff33, transparent 60%),
+                 radial-gradient(800px 300px at 10% 0%, #7c5cff33, transparent 60%)}
+    footer{padding:36px 18px;text-align:center;color:var(--muted)}
+    @media (prefers-reduced-motion:no-preference){
+      .fade{opacity:0;transform:translateY(8px)}
+      .fade.show{opacity:1;transform:none;transition:.6s ease}
+      .parallax{will-change:transform}
+    }
+
+    /* Timeline (schéma animé) */
+    .timeline{position:relative;padding:24px}
+    .timeline svg{width:100%;height:auto;display:block}
+    .tl-label{font-size:14px}
+    .tl-card{fill:var(--surface);stroke:var(--card-border);stroke-width:1}
+    .tl-dot{fill:#2997ff}
+    .tl-line{stroke:#2997ff;stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000}
+    .timeline.show .tl-line{animation: dash 1.8s ease forwards}
+    .timeline.show .tl-dot{animation: pop .5s ease forwards}
+    @keyframes dash{to{stroke-dashoffset:0}}
+    @keyframes pop{from{transform:scale(.5);opacity:.2}to{transform:scale(1);opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="pbg parallax" id="pbg" aria-hidden="true"></div>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot"></span><span>Victorien Bouvet</span></div>
+      <nav aria-label="Principale">
+        <ul>
+          <li><a href="#home" id="nav-home">Home</a></li>
+          <li><a href="#engineering" id="nav-eng">Engineering</a></li>
+          <li><a href="#mobility" id="nav-mob">Mobility</a></li>
+          <li><a href="#civic" id="nav-civic">Civic</a></li>
+          <li><a href="#sports" id="nav-sport">Sports</a></li>
+          <li><a href="#career" id="nav-career">Career</a></li>
+          <li><a href="#projects" id="nav-projects">Projects</a></li>
+        </ul>
+      </nav>
+      <div class="ctrls">
+        <a id="cvBtn" class="btn primary" href="/assets/CV_Victorien_Bouvet_FR.pdf" download>CV (FR)</a>
+        <button id="themeBtn" class="ghost" aria-label="Basculer le thème">🌓</button>
+        <select id="langSel" aria-label="Langue"><option value="fr" selected>FR</option><option value="en">EN</option></select>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="app"><!-- JS injects content --></main>
+
+  <footer><small>© <span id="year"></span> Victorien Bouvet — ENSEEIHT 3EA</small></footer>
+
+  <script>
+  (function(){
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+    $('#year').textContent = new Date().getFullYear();
+
+    // Theme
+    const root = document.documentElement;
+    const themeBtn = $('#themeBtn');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if(savedTheme === 'light') root.setAttribute('data-theme','light');
+    themeBtn.addEventListener('click', ()=>{
+      const isLight = root.getAttribute('data-theme') === 'light';
+      if(isLight){ root.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); }
+      else { root.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); }
+    });
+
+    // Parallax bg
+    const pbg = $('#pbg');
+    function parallaxBg(){ pbg.style.transform = 'translateY(' + (window.scrollY*0.25) + 'px)'; }
+    window.addEventListener('scroll', parallaxBg, {passive:true});
+
+    // Data (projects)
+    const data = {
+      projects:[
+        {slug:'rf-psu-bench',
+         fr:{title:'Banc de test RF (production)', summary:'Banc de test LabVIEW pour carte d’alimentation RF (Décyben/McKay Brothers).',
+             body:`<p>Objectif : fiabiliser la production et assurer la traçabilité. Conception de séquences de test LabVIEW, mesures (oscilloscope, charge électronique) et formation des opérateurs.</p>
+                   <ul><li>Technologies : LabVIEW, ODB++, oscilloscopes, charges électroniques</li><li>Rôle : conception, scripting et documentation</li></ul>`},
+         en:{title:'RF Production Test Bench', summary:'Automated LabVIEW bench for an RF power-supply board (Décyben/McKay Brothers).',
+             body:`<p>Goal: production reliability and traceability. I designed LabVIEW test sequences, performed measurements, and trained operators.</p>
+                   <ul><li>Tech: LabVIEW, ODB++, oscilloscopes, electronic loads</li><li>Role: test design, scripting, documentation</li></ul>`},
+         media:{cover:'/assets/projects/rf/cover.jpg', docs:[]}
+        },
+        {slug:'supermarine-mm01',
+         fr:{title:'Prototype Supermarine MM01', summary:'Fabrication additive, essais optiques et support électronique (Bouvet Frères Marine).',
+             body:`<p>Impression 3D, montage, essais optiques et intégration électronique sur le prototype.</p>`},
+         en:{title:'Supermarine MM01 Prototype', summary:'Additive manufacturing, optical testing and electronic support.',
+             body:`<p>3D printing, assembly, optical testing and electronic integration on the prototype.</p>`},
+         media:{cover:'/assets/projects/mm01/cover.jpg', docs:[]}
+        },
+        {slug:'live-sound',
+         fr:{title:'Régie son — grands événements', summary:'Behringer X32, réseau Dante, processeurs numériques.',
+             body:`<p>Ingénierie son pour des rassemblements de plusieurs milliers de personnes : gestion du réseau Dante et des scènes.</p>`},
+         en:{title:'Live Sound — Large Events', summary:'Behringer X32, Dante networking, digital processors.',
+             body:`<p>Front-of-house for large events: Dante network and scene management.</p>`},
+         media:{cover:'/assets/projects/audio/cover.jpg', docs:[]}
+        }
+      ]
+    };
+
+    // i18n
+    const i18n = {
+      fr:{
+        nav:{home:'Accueil',eng:'Parcours ingénieur',mob:'Mobilité',civic:'Engagement',sport:'Sports & activités',career:'Carrière',projects:'Projets'},
+        cv:{label:'CV (FR)',href:'/assets/CV_Victorien_Bouvet_FR.pdf'},
+        homeIntro:`<section id="home" class="section"><div class="grid cols-2">
+                <div class="card fade">
+                  <span class="chip">ENSEEIHT · Filière 3EA</span>
+                  <h1>Victorien Bouvet</h1>
+                  <p class="lead">Étudiant de <strong>première année</strong> à l’<strong>ENSEEIHT</strong>, filière <strong>Électronique, Énergie Électrique et Automatique (3EA)</strong>, après une <strong>CPGE ATS</strong>. Centres d’intérêt : prototypage, test & instrumentation, électronique embarquée.</p>
+                </div>
+                <div class="card fade">
+                  <h3 class="h2">Elevator pitch (à venir)</h3>
+                  <p class="muted">Vous pourrez ajouter votre vidéo ici : <code>/assets/elevator.mp4</code></p>
+                  <video controls width="100%" poster="/assets/elevator-poster.jpg">
+                    <source src="/assets/elevator.mp4" type="video/mp4"/>
+                    Votre navigateur ne prend pas en charge la vidéo.
+                  </video>
+                </div>
+              </div></section>`,
+        timelineTitle:'Parcours académique',
+        timelineStages:[
+          {title:'ENSEEIHT — 3EA', sub:'1re année (actuel)'},
+          {title:'CPGE ATS', sub:'Classe préparatoire'},
+          {title:'DUT Mesures Physiques', sub:'IUT d’Orsay — Univ. Paris-Saclay'},
+          {title:'Lycée', sub:'Baccalauréat général'}
+        ],
+        engineering:`<section id="engineering" class="section"><div class="card fade">
+                <h2 class="h2">Parcours d’ingénieur — 3EA</h2>
+                <p>Électronique analogique et de puissance, automatique, traitement du signal et instrumentation. Les projets et productions seront ajoutés au fil des semestres.</p>
+              </div></section>`,
+        mobility:`<section id="mobility" class="section"><div class="card fade">
+                <h2 class="h2">Mobilité internationale</h2>
+                <p>Destinations visées et objectifs d’apprentissage (alignés avec trois profils-modèles). Les documents seront ajoutés ultérieurement.</p>
+              </div></section>`,
+        civic:`<section id="civic" class="section"><div class="card fade">
+                <h2 class="h2">Engagement & durabilité</h2>
+                <p>Participation au scoutisme (régie technique), actions de bénévolat et réflexion sur l’impact et les compétences développées.</p>
+              </div></section>`,
+        sports:`<section id="sports" class="section"><div class="card fade">
+                <h2 class="h2">Sports & autres activités</h2>
+                <p>Voile (FFV niv. 3), ski freeride, violon. Soft skills : leadership, gestion du risque, collaboration.</p>
+              </div></section>`,
+        career:`<section id="career" class="section">
+                <div class="grid cols-2">
+                  <div class="card fade"><h2 class="h2">Développement de carrière</h2>
+                    <p>Intérêts : test/validation, électronique embarquée, instrumentation.</p>
+                    <p>LinkedIn : <a href="https://www.linkedin.com/in/victorien-bouvet/">consulter le profil</a></p>
+                  </div>
+                  <div class="card fade"><h3 class="h2">CV</h3>
+                    <div class="grid cols-2">
+                      <a class="btn primary" href="/assets/CV_Victorien_Bouvet_FR.pdf" download>📄 Télécharger le CV (FR)</a>
+                      <a class="btn" href="/assets/CV_Victorien_Bouvet_EN.pdf" download>📄 Télécharger le CV (EN)</a>
+                    </div>
+                  </div>
+                </div>
+              </section>`,
+        projectsIntro:`<section class="section"><div class="card fade">
+                <h2 class="h2">Projets</h2><p class="lead">Sélection de projets avec fiches détaillées. <strong>Cliquez</strong> pour ouvrir la page du projet.</p>
+              </div></section>`,
+        back:'← Retour aux projets',
+        ctaMore:'En savoir plus →'
+      },
+      en:{
+        nav:{home:'Welcome',eng:'Engineering course',mob:'Mobility',civic:'Civic engagement',sport:'Sports & activities',career:'Career',projects:'Projects'},
+        cv:{label:'Resume (EN)',href:'/assets/CV_Victorien_Bouvet_EN.pdf'},
+        homeIntro:`<section id="home" class="section"><div class="grid cols-2">
+                <div class="card fade">
+                  <span class="chip">ENSEEIHT · 3EA</span>
+                  <h1>Victorien Bouvet</h1>
+                  <p class="lead">First-year student at <strong>ENSEEIHT</strong>, major in <strong>Electronics, Electrical Energy & Automation (3EA)</strong>, following a <strong>CPGE ATS</strong>. Interests: prototyping, test & instrumentation, embedded electronics.</p>
+                </div>
+                <div class="card fade">
+                  <h3 class="h2">Elevator pitch (coming soon)</h3>
+                  <p class="muted">You will be able to add your video here: <code>/assets/elevator.mp4</code></p>
+                  <video controls width="100%" poster="/assets/elevator-poster.jpg">
+                    <source src="/assets/elevator.mp4" type="video/mp4"/>
+                    Your browser doesn’t support video.
+                  </video>
+                </div>
+              </div></section>`,
+        timelineTitle:'Academic Pathway',
+        timelineStages:[
+          {title:'ENSEEIHT — 3EA', sub:'Year 1 (current)'},
+          {title:'CPGE ATS', sub:'Preparatory class'},
+          {title:'DUT Physical Measurements', sub:'IUT d’Orsay — Univ. Paris-Saclay'},
+          {title:'High School', sub:'French Baccalauréat'}
+        ],
+        engineering:`<section id="engineering" class="section"><div class="card fade">
+                <h2 class="h2">Engineering course — 3EA</h2>
+                <p>Analog & power electronics, control, signal processing and instrumentation. Projects and deliverables will be added over the semesters.</p>
+              </div></section>`,
+        mobility:`<section id="mobility" class="section"><div class="card fade">
+                <h2 class="h2">International Mobility</h2>
+                <p>Planned destinations and learning goals (aligned with three role-model profiles). Documents will be added later.</p>
+              </div></section>`,
+        civic:`<section id="civic" class="section"><div class="card fade">
+                <h2 class="h2">Sustainability & civic engagement</h2>
+                <p>Scouting (tech crew), volunteering and reflections on impact and skills.</p>
+              </div></section>`,
+        sports:`<section id="sports" class="section"><div class="card fade">
+                <h2 class="h2">Sports & other activities</h2>
+                <p>Sailing (FFV L3), freeride skiing, violin. Teamwork, leadership and risk management.</p>
+              </div></section>`,
+        career:`<section id="career" class="section">
+                <div class="grid cols-2">
+                  <div class="card fade"><h2 class="h2">Career development</h2>
+                    <p>Interests: test/validation, embedded electronics, instrumentation.</p>
+                    <p>LinkedIn: <a href="https://www.linkedin.com/in/victorien-bouvet/">view profile</a></p>
+                  </div>
+                  <div class="card fade"><h3 class="h2">Resume</h3>
+                    <div class="grid cols-2">
+                      <a class="btn" href="/assets/CV_Victorien_Bouvet_FR.pdf" download>📄 CV (FR)</a>
+                      <a class="btn primary" href="/assets/CV_Victorien_Bouvet_EN.pdf" download>📄 Resume (EN)</a>
+                    </div>
+                  </div>
+                </div>
+              </section>`,
+        projectsIntro:`<section class="section"><div class="card fade">
+                <h2 class="h2">Projects</h2><p class="lead">Click a project to open its detailed page.</p>
+              </div></section>`,
+        back:'← Back to projects',
+        ctaMore:'Learn more →'
+      }
+    };
+
+    // Rendering helpers
+    const app   = $('#app');
+    const langSel = $('#langSel');
+    const cvBtn = $('#cvBtn');
+
+    const getLang = () => (localStorage.getItem('lang') || ((navigator.language||'fr').toLowerCase().startsWith('fr') ? 'fr' : 'en'));
+
+    function renderTimeline(lang){
+      const t = i18n[lang];
+      const stages = t.timelineStages; // already antichronological
+      // Responsive positions (horizontal on desktop, vertical stacked on mobile)
+      const isMobile = window.innerWidth < 720;
+      const w = isMobile ? 380 : 920;
+      const h = isMobile ? 360 : 180;
+      const step = isMobile ? h/(stages.length) : w/(stages.length);
+      let points = [];
+      for(let i=0;i<stages.length;i++){
+        const x = isMobile ? w/2 : 60 + i*step;
+        const y = isMobile ? 40 + i*step : h/2;
+        points.push({x,y});
+      }
+      const pathD = points.map((p,i)=> (i? 'L':'M') + p.x + ' ' + p.y).join(' ');
+      const nodes = points.map((p,i)=>`
+        <circle class="tl-dot" cx="${p.x}" cy="${p.y}" r="7" style="animation-delay:${0.25 + i*0.1}s"></circle>
+        <rect class="tl-card" x="${isMobile? (p.x-150) : (p.x-120)}" y="${isMobile? (p.y+14) : (p.y-58)}" rx="10" ry="10" width="${isMobile? 300: 240}" height="74"></rect>
+        <text class="tl-label" x="${isMobile? p.x : p.x}" y="${isMobile? (p.y+40) : (p.y-36)}" text-anchor="middle">${stages[i].title}</text>
+        <text class="tl-label" x="${isMobile? p.x : p.x}" y="${isMobile? (p.y+60) : (p.y-16)}" opacity=".7" text-anchor="middle">${stages[i].sub}</text>
+      `).join('');
+      return `
+      <section class="section">
+        <div class="card fade timeline" id="timeline">
+          <h2 class="h2" style="margin-bottom:12px">${t.timelineTitle}</h2>
+          <svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${t.timelineTitle}">
+            <path class="tl-line" d="${pathD}"></path>
+            ${nodes}
+          </svg>
+        </div>
+      </section>`;
+    }
+
+    function renderHome(lang){
+      const t = i18n[lang];
+      // nav labels
+      $('#nav-home').textContent=t.nav.home; $('#nav-eng').textContent=t.nav.eng;
+      $('#nav-mob').textContent=t.nav.mob;   $('#nav-civic').textContent=t.nav.civic;
+      $('#nav-sport').textContent=t.nav.sport; $('#nav-career').textContent=t.nav.career;
+      $('#nav-projects').textContent=t.nav.projects;
+      // CV button
+      cvBtn.textContent=t.cv.label; cvBtn.href=t.cv.href;
+      // sections: Intro + Timeline + autres onglets + intro projets + grille
+      app.innerHTML = t.homeIntro + renderTimeline(lang) + t.engineering + t.mobility + t.civic + t.sports + t.career + t.projectsIntro + renderProjectGrid(lang);
+      document.documentElement.lang = lang; localStorage.setItem('lang',lang);
+      requestAnimationFrame(()=>{
+        $$('.fade').forEach(el=>el.classList.add('show'));
+        // déclenche l'animation de la timeline quand visible
+        const tl = $('#timeline');
+        if(tl){
+          const obs = new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{ if(e.isIntersecting){ tl.classList.add('show'); obs.disconnect(); } });
+          }, {threshold:.3});
+          obs.observe(tl);
+        }
+      });
+    }
+
+    function renderProjectGrid(lang){
+      const t = i18n[lang];
+      return `<section id="projects" class="section">
+        ${data.projects.map(p=>{
+          const L = p[lang];
+          const tags = (p.tags||['Électronique','LabVIEW']).map(x=>`<span class="tag">${x}</span>`).join(' ');
+          return `<article class="card project fade">
+              <div class="grid cols-2" style="align-items:center">
+                <div>
+                  <h3 style="margin:0 0 6px">${L.title}</h3>
+                  <p class="muted" style="margin:0 0 8px">${L.summary}</p>
+                  <div class="k">${tags}</div>
+                  <p style="margin-top:10px"><a href="#/project/${p.slug}">${t.ctaMore}</a></p>
+                </div>
+                <img src="${p.media.cover||'/assets/placeholder.jpg'}" alt="${L.title}" style="width:100%;border-radius:14px;border:1px solid var(--card-border)" loading="lazy" class="parallax" data-parallax="0.08">
+              </div>
+            </article>`;
+        }).join('')}
+      </section>`;
+    }
+
+    function renderProjectDetail(slug, lang){
+      const p = data.projects.find(x=>x.slug===slug);
+      if(!p){ location.hash = '#'; return; }
+      const L = p[lang], t=i18n[lang];
+      app.innerHTML = `<section class="section">
+        <a href="#" class="btn" style="margin-bottom:12px">${t.back}</a>
+        <div class="card fade">
+          <div class="grid cols-2" style="align-items:start">
+            <img src="${p.media.cover||'/assets/placeholder.jpg'}" alt="${L.title}" style="width:100%;border-radius:14px;border:1px solid var(--card-border)" class="parallax" data-parallax="0.10">
+            <div>
+              <h2 class="h2" style="margin-top:0">${L.title}</h2>
+              ${L.body}
+              <div class="k" style="margin-top:10px">${(p.tags||['Électronique']).map(x=>`<span class="tag">${x}</span>`).join(' ')}</div>
+              <div style="margin-top:12px" class="grid cols-2">
+                ${(p.media.docs||[]).map(d=>`<a class="btn" href="${d.href}" download>${d.label}</a>`).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>`;
+      requestAnimationFrame(()=> $$('.fade').forEach(el=>el.classList.add('show')));
+    }
+
+    // Parallax on images
+    function applyParallax(){
+      $$('.parallax').forEach(el=>{
+        const speed = parseFloat(el.dataset.parallax||'0.08');
+        el.style.transform = 'translateY(' + (window.scrollY*speed) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', applyParallax, {passive:true});
+
+    // Router
+    function route(){
+      const lang = getLang();
+      const hash = location.hash.slice(1);
+      if(hash.startsWith('/project/')) renderProjectDetail(hash.replace('/project/',''), lang);
+      else renderHome(lang);
+      applyParallax();
+    }
+
+    // Lang selector
+    const initialLang = getLang();
+    langSel.value = initialLang;
+    langSel.addEventListener('change', e=>{ localStorage.setItem('lang', e.target.value); route(); });
+
+    // Start
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', route, {once:true});
+    } else { route(); }
+  })();
+  </script>
+</body>
+</html>
