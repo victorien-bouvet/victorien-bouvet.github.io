@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'Apple Color Emoji'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="fr"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Victorien Bouvet — E-Portfolio&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="E-portfolio de Victorien Bouvet — projets, expériences, parcours et contact." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="author" content="Victorien Bouvet" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="icon" href="/assets/favicon.ico" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{--bg:#0b0e14;--card:#121826;--text:#e6e6e6;--muted:#9aa4b2;--brand:#7c5cff;--brand-2:#22d3ee;--radius:16px;--maxw:1100px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"]{--bg:#f7f7fb;--card:#ffffff;--text:#1b1f2a;--muted:#5c6672}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,body{height:100%}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:var(--brand)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap{max-width:var(--maxw);margin:auto;padding:32px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header.nav{position:sticky;top:0;background:rgba(18,24,38,.8);backdrop-filter:blur(8px);z-index:50}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] header.nav{background:rgba(247,247,251,.8)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:20px;border:1px solid rgba(255,255,255,.08)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .card{border:1px solid rgba(0,0,0,.06)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1,h2,h3{margin-top:0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2));border:none;color:white;padding:10px 14px;border-radius:12px;font-weight:600;text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{text-decoration:none;filter:saturate(1.05)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>select{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15);padding:6px 10px;border-radius:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] select{border-color:rgba(0,0,0,.15)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .ghost{border-color:rgba(0,0,0,.15)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{display:grid;gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid.cols-3{grid-template-columns:repeat(3,1fr)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 920px){.grid.cols-3{grid-template-columns:1fr}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.15);font-size:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .tag{border-color:rgba(0,0,0,.15)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.search{display:flex;gap:8px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.search input{flex:1;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--text)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .search input{border-color:rgba(0,0,0,.18)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{text-align:center;padding:32px;color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header class="nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="nav-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;strong id="brand"&gt;Victorien Bouvet&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav aria-label="Primary"&gt;&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#about" id="nav-profile"&gt;Profil&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#projects" id="nav-projects"&gt;Projets&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#experience" id="nav-experience"&gt;Expérience&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#education" id="nav-education"&gt;Formation&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#skills" id="nav-skills"&gt;Compétences&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#contact" id="nav-contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a id="cvBtn" class="btn" href="/assets/CV_Victorien_Bouvet_FR.pdf" download&gt;<span class="s1">📄</span> CV (FR)&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="themeBtn" class="ghost" aria-label="Basculer thème"&gt;<span class="s1">🌓</span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="langSel" aria-label="Language selector"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="fr" selected&gt;FR&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="en"&gt;EN&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p1">&lt;main class="wrap" id="app"&gt;&lt;/main&gt;</p>
+<p class="p1">&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;small&gt;© &lt;span id="year"&gt;&lt;/span&gt; Victorien Bouvet — Hébergé sur GitHub Pages&lt;/small&gt;</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('year').textContent=new Date().getFullYear();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Thème clair/sombre</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const root=document.documentElement,themeBtn=document.getElementById('themeBtn');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const savedTheme=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(savedTheme==='light')root.setAttribute('data-theme','light');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>themeBtn.addEventListener('click',()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const cur=root.getAttribute('data-theme')==='light'?'light':'dark';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const next=cur==='light'?'dark':'light';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(next==='light')root.setAttribute('data-theme','light');else root.removeAttribute('data-theme');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>localStorage.setItem('theme',next);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Projets</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const projects=[</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{id:'rf-psu-bench',tags:['LabVIEW','Test','RF','Automation'],</p>
+<p class="p1"><span class="Apple-converted-space">     </span>fr:{title:'Banc de test de production (RF PSU)',desc:\"Conception d’un banc de test automatisé pour une carte d’alimentation RF : mesures, rapports automatiques, formation opérateurs (Décyben/McKay Brothers).\"},</p>
+<p class="p1"><span class="Apple-converted-space">     </span>en:{title:'Automated Production Test Bench (RF PSU)',desc:'Designed an automated test bench for an RF power supply board: measurements, auto-reports, operator training (Décyben/McKay Brothers).'}},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{id:'mm01-proto',tags:['Prototype','Additive Mfg','Optics','Embedded'],</p>
+<p class="p1"><span class="Apple-converted-space">     </span>fr:{title:'Prototypage Supermarine MM01',desc:\"Fabrication additive, gestion du parc machines, recherche de solutions techniques pour systèmes optiques et électroniques (Bouvet Frères Marine).\"},</p>
+<p class="p1"><span class="Apple-converted-space">     </span>en:{title:'Supermarine MM01 Prototyping',desc:'Additive manufacturing, machine fleet management, technical solutions for optical &amp; electronic systems (Bouvet Frères Marine).'}},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{id:'live-sound',tags:['Audio','Dante','X32','Events'],</p>
+<p class="p1"><span class="Apple-converted-space">     </span>fr:{title:'Régie son grands événements',desc:\"Sonorisation d’événements (plusieurs milliers de personnes). Behringer X32, réseau Dante, processeurs numériques (Scouts de France).\"},</p>
+<p class="p1"><span class="Apple-converted-space">     </span>en:{title:'Live Sound for Large Events',desc:'Front-of-house for large events. Behringer X32, Dante networking, digital processors (Scouts de France).'}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const content={</p>
+<p class="p1"><span class="Apple-converted-space">    </span>fr:{nav:{profile:'Profil',projects:'Projets',experience:'Expérience',education:'Formation',skills:'Compétences',contact:'Contact'},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cv:{label:'<span class="s1">📄</span> CV (FR)',href:'/assets/CV_Victorien_Bouvet_FR.pdf'},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>searchPH:'Rechercher un projet… (ex : LabVIEW)',</p>
+<p class="p1"><span class="Apple-converted-space">      </span>about:`&lt;section id="about" class="card"&gt;&lt;h1&gt;<span class="s1">👋</span> Victorien Bouvet&lt;/h1&gt;&lt;p&gt;Étudiant en &lt;strong&gt;CPGE ATS&lt;/strong&gt; (Génie Industriel) au Lycée Joliot Curie (Rennes), après un &lt;strong&gt;BUT Mesures Physiques&lt;/strong&gt; (IUT d’Orsay – Université Paris-Saclay). Passionné d’électronique, de prototypage et de systèmes embarqués, candidat à l’intégration d’une école d’ingénieur spécialisée en électronique &amp; systèmes embarqués.&lt;/p&gt;&lt;p&gt;Je recherche un environnement stimulant pour approfondir mes connaissances et contribuer à l’innovation technologique.&lt;/p&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>projects:`&lt;section id="projects" class="card"&gt;&lt;div class="row" style="justify-content:space-between;align-items:center"&gt;&lt;h2&gt;Projets&lt;/h2&gt;&lt;div class="search"&gt;&lt;input id="search" type="search" placeholder="Rechercher un projet… (ex : LabVIEW)" aria-label="Rechercher un projet"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="grid cols-3" id="projectGrid"&gt;&lt;/div&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>experience:`&lt;section id="experience" class="card"&gt;&lt;h2&gt;Expérience Professionnelle&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Décyben (McKay Brothers)&lt;/strong&gt; — Stagiaire laboratoire R&amp;D (2024, Paris)&lt;br&gt;Tests et validation d’un prototype de carte d’alimentation RF. Conception d’un banc de test automatisé (LabVIEW), formation opérateurs et traçabilité.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Bouvet Frères Marine SAS&lt;/strong&gt; — Stagiaire Chef de projet prototypage (2023, Paris)&lt;br&gt;Fabrication additive, entretien des machines, optimisation des processus. Solutions techniques et électroniques pour le prototype &lt;em&gt;Supermarine MM01&lt;/em&gt;.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Scouts de France&lt;/strong&gt; — Régisseur (2018–…)&lt;br&gt;Sonorisation d’événements (plusieurs milliers de personnes). Behringer X32, réseau Dante, processeurs numériques.&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>education:`&lt;section id="education" class="card"&gt;&lt;h2&gt;Formation&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;CPGE ATS – Génie Industriel&lt;/strong&gt; · Lycée Joliot-Curie, Rennes (2025)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;BUT Mesures Physiques&lt;/strong&gt; · Université Paris-Saclay – IUT d’Orsay (2021–2024)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Baccalauréat général&lt;/strong&gt; · Lycée Saint-Louis Saint-Clément, Viry-Châtillon (2022)&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>skills:`&lt;section id="skills" class="card"&gt;&lt;h2&gt;Compétences&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Techniques :&lt;/strong&gt; LabVIEW, SolidWorks, Fusion 360, Photoshop, Cura, Lychee Slicer&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Langues :&lt;/strong&gt; Français (natif), Anglais (B2), Espagnol (B1)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Soft skills :&lt;/strong&gt; Gestion de projet, esprit d’équipe, rigueur, autonomie&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>contact:`&lt;section id="contact" class="card"&gt;&lt;h2&gt;Contact&lt;/h2&gt;&lt;p&gt;<span class="s1">📍</span> 33 rue de Sillery, 91360 Épinay-sur-Orge&lt;br&gt;<span class="s1">📧</span> &lt;a href="mailto:victorien.bouvet@gmail.com"&gt;victorien.bouvet@gmail.com&lt;/a&gt;&lt;br&gt;<span class="s1">🔗</span> &lt;a href="https://www.linkedin.com/in/victorien-bouvet/"&gt;LinkedIn&lt;/a&gt; · &lt;a href="https://github.com/victorien-bouvet"&gt;GitHub&lt;/a&gt;&lt;/p&gt;&lt;/section&gt;`},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>en:{nav:{profile:'About',projects:'Projects',experience:'Experience',education:'Education',skills:'Skills',contact:'Contact'},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cv:{label:'<span class="s1">📄</span> CV (EN)',href:'/assets/CV_Victorien_Bouvet_EN.pdf'},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>searchPH:'Search projects… (e.g., LabVIEW)',</p>
+<p class="p1"><span class="Apple-converted-space">      </span>about:`&lt;section id="about" class="card"&gt;&lt;h1&gt;<span class="s1">👋</span> Victorien Bouvet&lt;/h1&gt;&lt;p&gt;Currently in &lt;strong&gt;CPGE ATS&lt;/strong&gt; (Industrial Engineering) at Lycée Joliot Curie (Rennes), after a &lt;strong&gt;BUT in Physical Measurements&lt;/strong&gt; (IUT d’Orsay – Université Paris-Saclay). Passionate about electronics, prototyping and embedded systems, aiming to join an engineering school in electronics &amp; embedded systems.&lt;/p&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>projects:`&lt;section id="projects" class="card"&gt;&lt;div class="row" style="justify-content:space-between;align-items:center"&gt;&lt;h2&gt;Projects&lt;/h2&gt;&lt;div class="search"&gt;&lt;input id="search" type="search" placeholder="Search projects… (e.g., LabVIEW)" aria-label="Search projects"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="grid cols-3" id="projectGrid"&gt;&lt;/div&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>experience:`&lt;section id="experience" class="card"&gt;&lt;h2&gt;Professional Experience&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Décyben (McKay Brothers)&lt;/strong&gt; — R&amp;D Lab Intern (2024, Paris)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Bouvet Frères Marine SAS&lt;/strong&gt; — Prototyping Project Intern (2023, Paris)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Scouts de France&lt;/strong&gt; — Production Tech (2018–…)&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>education:`&lt;section id="education" class="card"&gt;&lt;h2&gt;Education&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;CPGE ATS – Industrial Engineering&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;BUT – Physical Measurements&lt;/strong&gt;&lt;/li&gt;&lt;li&gt;&lt;strong&gt;French Baccalauréat&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>skills:`&lt;section id="skills" class="card"&gt;&lt;h2&gt;Skills&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Technical:&lt;/strong&gt; LabVIEW, SolidWorks, Fusion 360&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Languages:&lt;/strong&gt; French, English, Spanish&lt;/li&gt;&lt;/ul&gt;&lt;/section&gt;`,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>contact:`&lt;section id="contact" class="card"&gt;&lt;h2&gt;Contact&lt;/h2&gt;&lt;p&gt;<span class="s1">📧</span> &lt;a href="mailto:victorien.bouvet@gmail.com"&gt;victorien.bouvet@gmail.com&lt;/a&gt;&lt;/p&gt;&lt;/section&gt;`}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const app=document.getElementById('app'),langSel=document.getElementById('langSel'),</p>
+<p class="p1"><span class="Apple-converted-space">  </span>navProfile=document.getElementById('nav-profile'),navProj=document.getElementById('nav-projects'),</p>
+<p class="p1"><span class="Apple-converted-space">  </span>navExp=document.getElementById('nav-experience'),navEdu=document.getElementById('nav-education'),</p>
+<p class="p1"><span class="Apple-converted-space">  </span>navSkills=document.getElementById('nav-skills'),navContact=document.getElementById('nav-contact'),</p>
+<p class="p1"><span class="Apple-converted-space">  </span>cvBtn=document.getElementById('cvBtn');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function renderProjects(lang){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const grid=document.getElementById('projectGrid');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>grid.innerHTML='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>projects.forEach(p=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const div=document.createElement('article');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>div.className='card';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>div.setAttribute('data-tags',p.tags.join(' ').toLowerCase());</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const t=lang==='fr'?p.fr:p.en;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>div.innerHTML=`&lt;h3&gt;${t.title}&lt;/h3&gt;&lt;p class="muted"&gt;${t.desc}&lt;/p&gt;&lt;p&gt;${p.tags.map(x=&gt;`&lt;span class="tag"&gt;${x}&lt;/span&gt;`).join(' ')}&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const search=document.getElementById('search');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(search){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>search.addEventListener('input',e=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const v=e.target.value.toLowerCase().trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>grid.querySelectorAll('article').forEach(card=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">          </span>const hay=(card.textContent+' '+(card.dataset.tags||'')).toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>card.style.display=hay.includes(v)?'':'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function render(lang){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const c=content[lang];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>navProfile.textContent=c.nav.profile;navProj.textContent=c.nav.projects;navExp.textContent=c.nav.experience;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>navEdu.textContent=c.nav.education;navSkills.textContent=c.nav.skills;navContact.textContent=c.nav.contact;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cvBtn.textContent=c.cv.label;cvBtn.href=c.cv.href;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>app.innerHTML=c.about+c.projects+c.experience+c.education+c.skills+c.contact;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.documentElement.lang=lang;localStorage.setItem('lang',lang);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderProjects(lang);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const savedLang=localStorage.getItem('lang')||'fr';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>langSel.value=savedLang;render(savedLang);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>langSel.addEventListener('change',e=&gt;render(e.target.value));</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
