@@ -436,7 +436,7 @@
           color-mix(in oklab, var(--nav-underline) 30%, transparent);
       }
 
-      /* Projets : cadres stables, sans animation de zoom. */
+      /* Projets : cadres stables et survol discret des images. */
       .project-list {
         display: grid;
         gap: 16px;
@@ -515,6 +515,18 @@
         }
       }
 
+      @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+        .thumb-link img,
+        .detail-media img {
+          transition: transform 0.35s ease;
+        }
+
+        .thumb-link:hover img,
+        .detail-media:hover img {
+          transform: scale(1.03);
+        }
+      }
+
       /* Mise en page responsive. */
       @media (max-width: 960px) {
         .cols-2,
@@ -562,7 +574,7 @@
         }
       }
 
-      /* Animations d'apparition uniquement, jamais sur les images. */
+      /* Animations d'apparition des blocs. */
       @media (prefers-reduced-motion: no-preference) {
         .fade {
           opacity: 0;
